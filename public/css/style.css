@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* HEADER STYLE */
+header {
+    background-color: rgb(100, 133, 194);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 10px;
+    color: white;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: 2px solid white;
+}
+
+header a:hover {
+    background-color: rgb(99, 99, 179);
+}
+
+/* MAIN OFICINAS STYLE */
+#mainIndex {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#mainIndex h2 {
+    margin-top: 1rem;
+}
+#mainIndex ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#mainIndex ul li {
+    padding: 12px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s;
+}
+
+#mainIndex ul li:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+#mainIndex ul li:hover {
+    background-color: #ddd;
+}
+
+#botonCrear {
+    background-color: rgb(100, 133, 194);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#botonCrear:hover {
+    background-color: rgb(99, 99, 179);
+}
+
+/* MAIN CREAROFICINA STYLE */
+#mainCrear{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#formularioCrear{
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+#formularioCrear label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+#formularioCrear input {
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#formularioCrear button {
+    background-color: rgb(100, 133, 194);
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+#formularioCrear button:hover {
+    background-color: rgb(99, 99, 179);
+}
