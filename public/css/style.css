@@ -45,6 +45,7 @@ header a:hover {
 #mainIndex h2 {
     margin-top: 1rem;
 }
+
 #mainIndex ul {
     list-style-type: none;
     padding: 0;
@@ -121,4 +122,34 @@ header a:hover {
 
 #formularioCrear button:hover {
     background-color: rgb(99, 99, 179);
+}
+
+/* MAIN VER EMPLEADOS DE OFICINA */
+#verEmpleados {
+    margin: 1rem;
+}
+
+#verEmpleados h2 {
+    margin-top: 1rem;
+}
+
+#verEmpleados ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#verEmpleados ul li {
+    padding: 12px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s;
+}
+
+#verEmpleados ul li:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+#verEmpleados ul li:hover {
+    background-color: #ddd;
 }

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Empleado;
+use App\Models\Oficina;
 
 class EmpleadosController extends Controller
 {
@@ -12,7 +14,8 @@ class EmpleadosController extends Controller
      */
     public function index()
     {
-        //
+        $empleados = Empleado::all();
+        return view('empleadosOficina', compact('empleados'));
     }
 
     /**
@@ -20,7 +23,8 @@ class EmpleadosController extends Controller
      */
     public function create()
     {
-        //
+        $oficinas = Oficina::all();
+        return view('crearEmpleado', compact('oficinas'));
     }
 
     /**
@@ -28,7 +32,18 @@ class EmpleadosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request -> validate([
+            'nombre' => 'required',
+            'primerApellido' => 'required',
+            'segundoApellido' => 'required',
+            'rol' => 'required',
+            'fechaNacimiento' => 'required',
+            'dni' => 'required',
+            'email' => 'required'
+        ]);
+
+        Empleado::create($request->all());
+        return redirect()->route('empleados.index')->with('success', 'Empleado creado');
     }
 
     /**

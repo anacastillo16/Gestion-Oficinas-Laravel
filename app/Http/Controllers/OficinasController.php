@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Oficina;
+use App\Models\Empleado;
 
 class OficinasController extends Controller
 {
@@ -44,7 +45,8 @@ class OficinasController extends Controller
      */
     public function show(string $id)
     {
-        $oficina = Oficina::findOrFail($id);
+        $oficina = Oficina::with('empleados')->findOrFail($id);
+        $empleados = Empleado::where('oficina_id', $id)->get();
         return view('empleadosOficina', compact('oficina'));
     }
 
