@@ -15,7 +15,7 @@
     </header>
     
     <main id="verEmpleados">
-        <a href="{{ route('empleados.create') }}" id="botonCrear">Añadir Empleado</a>
+        <a href="{{ route('empleados.create',  ['id' => $oficina->id]) }}" id="botonCrear">Añadir Empleado </a>
         <h2>Empleados de la oficina {{ $oficina->nombre }}</h2>
         <ul>
             @foreach($oficina->empleados as $empleado)

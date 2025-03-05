@@ -15,22 +15,23 @@ class EmpleadosController extends Controller
     public function index()
     {
         $empleados = Empleado::all();
-        return view('empleadosOficina', compact('empleados'));
+        $oficinas = Oficina::all();
+        return view('empleadosOficina', compact('empleados', 'oficinas'));  
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create($id)
     {
-        $oficinas = Oficina::all();
-        return view('crearEmpleado', compact('oficinas'));
+        $oficina = Oficina::findOrFail($id);
+        return view('crearEmpleado', compact('oficina'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
         $request -> validate([
             'nombre' => 'required',
@@ -39,11 +40,12 @@ class EmpleadosController extends Controller
             'rol' => 'required',
             'fechaNacimiento' => 'required',
             'dni' => 'required',
-            'email' => 'required'
+            'email' => 'required',
+            'id_oficina' => $id
         ]);
 
         Empleado::create($request->all());
-        return redirect()->route('empleados.index')->with('success', 'Empleado creado');
+        return redirect()->route('empleados.index', $id)->with('success', 'Empleado creado');
     }
 
     /**
@@ -51,7 +53,9 @@ class EmpleadosController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $empleado = Empleado::findOrFail($id);
+        $oficina = Oficina::findOrFail($empleado->oficina_id);
+        return view('editarEmpleado', compact('empleado', 'oficina'));
     }
 
     /**
@@ -59,7 +63,9 @@ class EmpleadosController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $empleado = Empleado::findOrFail($id);
+        $oficina = Oficina::findOrFail($empleado->oficina_id);
+        return view('editarEmpleado', compact('empleado', 'oficina'));
     }
 
     /**
@@ -67,7 +73,9 @@ class EmpleadosController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $empleado = Empleado::findOrFail($id);
+        $empleado->update($request->all());
+        return redirect()->route('empleados.index')->with('success', 'Empleado actualizado');
     }
 
     /**

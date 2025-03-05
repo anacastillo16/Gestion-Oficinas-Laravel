@@ -30,14 +30,16 @@
             <label for="rol">Rol: </label>
             <input type="text" name="rol" id="rol">
 
-            <label for="fechaNac">Fecha Nacimiento: </label>
-            <input type="date" name="fechaNac" id="fechaNac">
+            <label for="fechaNacimiento">Fecha Nacimiento: </label>
+            <input type="date" name="fechaNacimiento" id="fechaNacimiento">
 
             <label for="dni">DNI: </label>
             <input type="text" name="dni" id="dni">
 
             <label for="email">Email: </label>
             <input type="email" name="email" id="email">
+
+            <input type="hidden" name="oficina_id" value="{{ $oficina->id }}">
 
             <button type="submit">Añadir Empleado</button>
         </form>

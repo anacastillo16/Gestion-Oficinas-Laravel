@@ -10,3 +10,4 @@ Route::get('/', function () {
 
 Route::resource('oficinas', OficinasController::class);
 Route::resource('empleados', EmpleadosController::class);
+Route::get('/oficinas/{id}/empleados/create', [EmpleadosController::class, 'create'])->name('empleados.create');
